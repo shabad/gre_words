@@ -7,3 +7,48 @@
 //
 
 import Foundation
+
+import SocketIO
+
+class SocketIOManager: NSObject {
+    static let shared = SocketIOManager()
+    
+    
+    
+    var socket: SocketIOClient!
+    
+    // defaultNamespaceSocket and swiftSocket both share a single connection to the server
+    let manager = SocketManager(socketURL: URL(string: "http://localhost:5000")!, config: [.log(true), .compress])
+    
+    override init() {
+        super.init()
+        
+        socket = manager.defaultSocket
+    }
+    
+    func connectSocket() {
+        socket.on(clientEvent: .connect) {data, ack in
+            print("socket connected")
+        }
+        socket.connect()
+    }
+    
+    
+    func disconnectSocket() {
+
+        socket.disconnect()
+    
+        
+        
+    }
+    
+    
+//    func receiveMsg() {
+//        socket.on("new message here") { (dataArray, ack) in
+//
+//            print(dataArray.count)
+//
+//        }
+    
+    }
+

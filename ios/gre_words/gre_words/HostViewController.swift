@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import SocketIO
 
 class HostViewController: UIViewController {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +19,13 @@ class HostViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    
+    
+    @IBAction func launch_game(_ sender: UIButton) {
+       
+     SocketIOManager.shared.connectSocket()
+    }
+    
     /*
     // MARK: - Navigation
 
