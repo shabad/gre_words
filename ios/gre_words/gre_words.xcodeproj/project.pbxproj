@@ -13,9 +13,11 @@
 		C35518E6217669C1005C28A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C35518E5217669C1005C28A2 /* Assets.xcassets */; };
 		C35518E9217669C1005C28A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35518E7217669C1005C28A2 /* LaunchScreen.storyboard */; };
 		C35518F52176D822005C28A2 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35518F42176D822005C28A2 /* DesignableView.swift */; };
+		CD4AD5562AAB1EE5CD289FDE /* Pods_gre_words.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C94EDF6154F2855D307835 /* Pods_gre_words.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		294319D487CFD457025F0FE9 /* Pods-gre_words.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gre_words.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gre_words/Pods-gre_words.debug.xcconfig"; sourceTree = "<group>"; };
 		C35518DB217669BC005C28A2 /* gre_words.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gre_words.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C35518DE217669BC005C28A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C35518E0217669BC005C28A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		C35518E8217669C1005C28A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C35518EA217669C1005C28A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C35518F42176D822005C28A2 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		C3616BFB338C2908057A79C9 /* Pods-gre_words.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gre_words.release.xcconfig"; path = "Pods/Target Support Files/Pods-gre_words/Pods-gre_words.release.xcconfig"; sourceTree = "<group>"; };
+		C5C94EDF6154F2855D307835 /* Pods_gre_words.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gre_words.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD4AD5562AAB1EE5CD289FDE /* Pods_gre_words.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B1AB77B5412B6AF4E3A273EA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				294319D487CFD457025F0FE9 /* Pods-gre_words.debug.xcconfig */,
+				C3616BFB338C2908057A79C9 /* Pods-gre_words.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C35518D2217669BC005C28A2 = {
 			isa = PBXGroup;
 			children = (
 				C35518DD217669BC005C28A2 /* gre_words */,
 				C35518DC217669BC005C28A2 /* Products */,
+				B1AB77B5412B6AF4E3A273EA /* Pods */,
+				FE5588EE86164A3C08757AB6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +83,14 @@
 			path = gre_words;
 			sourceTree = "<group>";
 		};
+		FE5588EE86164A3C08757AB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5C94EDF6154F2855D307835 /* Pods_gre_words.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C35518ED217669C1005C28A2 /* Build configuration list for PBXNativeTarget "gre_words" */;
 			buildPhases = (
+				C6E19A43C7FB1A369BE05F26 /* [CP] Check Pods Manifest.lock */,
 				C35518D7217669BC005C28A2 /* Sources */,
 				C35518D8217669BC005C28A2 /* Frameworks */,
 				C35518D9217669BC005C28A2 /* Resources */,
+				1D6D0A507319677977DCD986 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +158,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D6D0A507319677977DCD986 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-gre_words/Pods-gre_words-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gre_words/Pods-gre_words-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6E19A43C7FB1A369BE05F26 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-gre_words-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C35518D7217669BC005C28A2 /* Sources */ = {
@@ -284,6 +359,7 @@
 		};
 		C35518EE217669C1005C28A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 294319D487CFD457025F0FE9 /* Pods-gre_words.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -301,6 +377,7 @@
 		};
 		C35518EF217669C1005C28A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3616BFB338C2908057A79C9 /* Pods-gre_words.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
