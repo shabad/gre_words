@@ -13,6 +13,9 @@
 		C35518E6217669C1005C28A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C35518E5217669C1005C28A2 /* Assets.xcassets */; };
 		C35518E9217669C1005C28A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35518E7217669C1005C28A2 /* LaunchScreen.storyboard */; };
 		C35518F52176D822005C28A2 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35518F42176D822005C28A2 /* DesignableView.swift */; };
+		C361DF1B2178480F000429D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361DF1A2178480F000429D6 /* HomeViewController.swift */; };
+		C361DF1D2178E637000429D6 /* HostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361DF1C2178E637000429D6 /* HostViewController.swift */; };
+		C361DF1F2178E64E000429D6 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361DF1E2178E64E000429D6 /* JoinViewController.swift */; };
 		CD4AD5562AAB1EE5CD289FDE /* Pods_gre_words.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C94EDF6154F2855D307835 /* Pods_gre_words.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +30,9 @@
 		C35518EA217669C1005C28A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C35518F42176D822005C28A2 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		C3616BFB338C2908057A79C9 /* Pods-gre_words.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gre_words.release.xcconfig"; path = "Pods/Target Support Files/Pods-gre_words/Pods-gre_words.release.xcconfig"; sourceTree = "<group>"; };
+		C361DF1A2178480F000429D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C361DF1C2178E637000429D6 /* HostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostViewController.swift; sourceTree = "<group>"; };
+		C361DF1E2178E64E000429D6 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		C5C94EDF6154F2855D307835 /* Pods_gre_words.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gre_words.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -74,7 +80,10 @@
 			children = (
 				C35518DE217669BC005C28A2 /* AppDelegate.swift */,
 				C35518E0217669BC005C28A2 /* ViewController.swift */,
+				C361DF1A2178480F000429D6 /* HomeViewController.swift */,
 				C35518E2217669BC005C28A2 /* Main.storyboard */,
+				C361DF1E2178E64E000429D6 /* JoinViewController.swift */,
+				C361DF1C2178E637000429D6 /* HostViewController.swift */,
 				C35518E5217669C1005C28A2 /* Assets.xcassets */,
 				C35518E7217669C1005C28A2 /* LaunchScreen.storyboard */,
 				C35518EA217669C1005C28A2 /* Info.plist */,
@@ -214,8 +223,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C35518E1217669BC005C28A2 /* ViewController.swift in Sources */,
+				C361DF1D2178E637000429D6 /* HostViewController.swift in Sources */,
 				C35518DF217669BC005C28A2 /* AppDelegate.swift in Sources */,
 				C35518F52176D822005C28A2 /* DesignableView.swift in Sources */,
+				C361DF1F2178E64E000429D6 /* JoinViewController.swift in Sources */,
+				C361DF1B2178480F000429D6 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
