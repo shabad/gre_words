@@ -16,6 +16,9 @@ class JoinViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func onJoin(sender: UIButton){
+        
+    }
 
     /*
     // MARK: - Navigation

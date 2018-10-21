@@ -42,6 +42,19 @@ class SocketIOManager: NSObject {
         
     }
     
+    func joinRoom(room: String){
+        socket.emit("join", room)
+        
+    }
+    
+    func getRoomCode(){
+        socket.on("roomCode") { (data, SocketAckEmitter) in
+            print(data)
+        }
+        
+    }
+    
+    
     
 //    func receiveMsg() {
 //        socket.on("new message here") { (dataArray, ack) in

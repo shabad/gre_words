@@ -11,10 +11,12 @@ import SocketIO
 
 class HostViewController: UIViewController {
     
+    var nickname : String?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(self.nickname ?? "default valued")
 
         // Do any additional setup after loading the view.
     }
@@ -23,7 +25,8 @@ class HostViewController: UIViewController {
     
     @IBAction func launch_game(_ sender: UIButton) {
        
-     SocketIOManager.shared.connectSocket()
+       
+    
     }
     
     /*
