@@ -92,12 +92,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="code nova" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4A-VB-Nzl">
-                                <rect key="frame" x="140.66666666666666" y="116" width="132.99999999999997" height="36"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2y-7J-6nz">
                                 <rect key="frame" x="74.666666666666686" y="651" width="265" height="65"/>
                                 <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -125,6 +119,12 @@
                                     <constraint firstAttribute="width" secondItem="bJT-sB-kqg" secondAttribute="height" multiplier="53:48" id="bPt-Wp-Wx5"/>
                                 </constraints>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4A-VB-Nzl">
+                                <rect key="frame" x="71" y="117" width="273" height="43"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.44169020450000002" green="0.83154549870000005" blue="0.54840973140000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -141,10 +141,13 @@
                     <navigationItem key="navigationItem" title="Host A Game" id="ld4-sT-b40">
                         <barButtonItem key="backBarButtonItem" title="Back" id="MQb-PG-3FB"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="roomCode" destination="S4A-VB-Nzl" id="kP1-g7-k0W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ac-Kq-fte" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2947.826086956522" y="-359.59821428571428"/>
+            <point key="canvasLocation" x="2947.826086956522" y="-360.32608695652175"/>
         </scene>
         <!--Join Game-->
         <scene sceneID="9ca-AU-IdU">

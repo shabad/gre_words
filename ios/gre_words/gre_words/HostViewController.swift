@@ -12,14 +12,37 @@ import SocketIO
 class HostViewController: UIViewController {
     
     var nickname : String?
+    @IBOutlet weak var roomCode: UILabel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+    }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(self.nickname ?? "default valued")
+        
+        SocketIOManager.shared.socket.emit("connectHostUser", self.nickname ?? "no name")
+        SocketIOManager.shared.socket.on("roomcode") {data, ack in
+            if let rCode = data[0] as? String {
+                self.roomCode.text = rCode
+                
+            }
+            
+        }
+        
+
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+      
+        
+    }
+
     
     
     

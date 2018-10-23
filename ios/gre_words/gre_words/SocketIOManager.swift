@@ -54,6 +54,17 @@ class SocketIOManager: NSObject {
         
     }
     
+    func connectToServerWithNickname(nickname: String) -> String {
+        var Rcode:String?
+        socket.emit("connectHostUser", nickname)
+        socket.on("roomcode") { (code, SocketAckEmitter) in
+            Rcode = "code as String"
+        }
+        return Rcode ?? "problem"
+        }
+        
+    
+    
     
     
 //    func receiveMsg() {
