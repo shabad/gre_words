@@ -3,6 +3,7 @@ from flask_socketio import SocketIO, send, emit, join_room, leave_room
 import random
 
 
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
@@ -20,16 +21,24 @@ def on_connect():
 @socketio.on('connectHostUser')
 def on_connect_host(nickname):
     name = nickname
-    # room = data['room']
     room = generateRoomCode()
     join_room(room)
     print(nickname + " has joined")
     emit("roomcode", room)
 
+
 def generateRoomCode():
     secure_random = random.SystemRandom()
+
     return (secure_random.choice(words))
 
+
+@socketio.on('connectPlayerUser')
+def on_connect_player(data):
+    name = data['nickname']
+    roomCode = data['roomCode']
+    join_room(roomCode)
+    print(name + " has joined")
 
 
     # send(username + ' has entered the room.', room=room)

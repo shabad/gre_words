@@ -48,6 +48,34 @@ class HomeViewController: UIViewController {
         
     }
     
+    @IBAction func joinGame(_ sender: UIButton) {
+        
+        let alertController = UIAlertController(title: "Enter a nickname", message: "", preferredStyle: .alert)
+        
+        let submitNameAction = UIAlertAction(title: "Okay", style: .default) { (action) in
+            let textField = alertController.textFields![0]
+            self.nickname = textField.text!
+            self.performSegue(withIdentifier: "joinGameSegue", sender: nil)
+            
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        }
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "John Doe"
+            textField.keyboardType = .namePhonePad
+        }
+        
+        alertController.addAction(submitNameAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -59,6 +87,12 @@ class HomeViewController: UIViewController {
         // If segue is the HostViewController Segue, we send the nickname to it.
         if segue.identifier == "hostGameSegue" {
             let controller = segue.destination as! HostViewController
+            controller.nickname = self.nickname
+            
+        }
+        
+        if segue.identifier == "joinGameSegue" {
+            let controller = segue.destination as! JoinViewController
             controller.nickname = self.nickname
             
         }

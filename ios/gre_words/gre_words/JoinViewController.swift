@@ -10,13 +10,22 @@ import UIKit
 
 class JoinViewController: UIViewController {
 
+    var nickname : String?
+    
+ 
+    @IBOutlet weak var roomCode: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         // Do any additional setup after loading the view.
     }
     
     @IBAction func onJoin(sender: UIButton){
+        
+        SocketIOManager.shared.socket.emit("connectPlayerUser", ["nickname": self.nickname, "roomCode": self.roomCode.text])
         
     }
 

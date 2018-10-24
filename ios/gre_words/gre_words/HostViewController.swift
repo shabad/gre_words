@@ -12,6 +12,9 @@ import SocketIO
 class HostViewController: UIViewController {
     
     var nickname : String?
+    
+    var members: [String] = []
+    
     @IBOutlet weak var roomCode: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -23,6 +26,15 @@ class HostViewController: UIViewController {
         super.viewDidLoad()
         
         SocketIOManager.shared.socket.emit("connectHostUser", self.nickname ?? "no name")
+        
+        
+        if let nickname = self.nickname {
+            members.append(nickname)
+            for element in members {
+                print("Member: " + element)
+            }
+        }
+        
         SocketIOManager.shared.socket.on("roomcode") {data, ack in
             if let rCode = data[0] as? String {
                 self.roomCode.text = rCode

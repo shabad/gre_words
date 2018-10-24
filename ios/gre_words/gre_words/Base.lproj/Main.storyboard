@@ -42,7 +42,8 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="nid-gf-1FY" kind="show" id="sTQ-52-Sro"/>
+                                            <action selector="joinGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6qx-Rm-HeA"/>
+                                            <segue destination="nid-gf-1FY" kind="show" identifier="joinGameSegue" id="sTQ-52-Sro"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -188,6 +189,9 @@
                         <viewLayoutGuide key="safeArea" id="Q5s-MZ-SJh"/>
                     </view>
                     <navigationItem key="navigationItem" title="Join Game" id="4nS-wG-tyO"/>
+                    <connections>
+                        <outlet property="roomCode" destination="CEH-z2-A4r" id="rne-Cf-V66"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="We6-cb-gqT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
