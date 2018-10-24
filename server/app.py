@@ -10,6 +10,8 @@ socketio = SocketIO(app)
 words = ['battery', 'correct', 'horse', 'staple']
 rooms = []
 
+room_members = {}
+
 
 @socketio.on('connect')
 def on_connect():
@@ -23,6 +25,9 @@ def on_connect_host(nickname):
     name = nickname
     room = generateRoomCode()
     join_room(room)
+    room_members[room] = []
+    room_members[room].append(name)
+    print(room_members)
     print(nickname + " has joined")
     emit("roomcode", room)
 
@@ -38,7 +43,11 @@ def on_connect_player(data):
     name = data['nickname']
     roomCode = data['roomCode']
     join_room(roomCode)
+    room_members[roomCode].append(name)
+    print(room_members)
     print(name + " has joined")
+
+
 
 
     # send(username + ' has entered the room.', room=room)
