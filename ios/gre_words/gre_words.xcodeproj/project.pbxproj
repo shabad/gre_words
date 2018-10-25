@@ -18,6 +18,7 @@
 		C361DF1F2178E64E000429D6 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361DF1E2178E64E000429D6 /* JoinViewController.swift */; };
 		C361DF212178F757000429D6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C361DF202178F756000429D6 /* Default-568h@2x.png */; };
 		C361DF232179063C000429D6 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361DF222179063C000429D6 /* SocketIOManager.swift */; };
+		C39019CD218175E900575F5C /* WaitingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39019CC218175E900575F5C /* WaitingRoomViewController.swift */; };
 		CD4AD5562AAB1EE5CD289FDE /* Pods_gre_words.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C94EDF6154F2855D307835 /* Pods_gre_words.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		C361DF1E2178E64E000429D6 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		C361DF202178F756000429D6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C361DF222179063C000429D6 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		C39019CC218175E900575F5C /* WaitingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomViewController.swift; sourceTree = "<group>"; };
 		C5C94EDF6154F2855D307835 /* Pods_gre_words.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gre_words.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 				C35518E0217669BC005C28A2 /* ViewController.swift */,
 				C361DF1A2178480F000429D6 /* HomeViewController.swift */,
 				C35518E2217669BC005C28A2 /* Main.storyboard */,
+				C39019CC218175E900575F5C /* WaitingRoomViewController.swift */,
 				C361DF1E2178E64E000429D6 /* JoinViewController.swift */,
 				C361DF1C2178E637000429D6 /* HostViewController.swift */,
 				C361DF222179063C000429D6 /* SocketIOManager.swift */,
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C35518E1217669BC005C28A2 /* ViewController.swift in Sources */,
+				C39019CD218175E900575F5C /* WaitingRoomViewController.swift in Sources */,
 				C361DF1D2178E637000429D6 /* HostViewController.swift in Sources */,
 				C35518DF217669BC005C28A2 /* AppDelegate.swift in Sources */,
 				C361DF232179063C000429D6 /* SocketIOManager.swift in Sources */,

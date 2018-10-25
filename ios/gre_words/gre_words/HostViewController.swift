@@ -9,17 +9,32 @@
 import UIKit
 import SocketIO
 
-class HostViewController: UIViewController {
+class HostViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     
     var nickname : String?
     
-    var members: [String] = []
+    var members_list: [String] = []
     
     @IBOutlet weak var roomCode: UILabel!
+    @IBOutlet weak var membersTable: UITableView!
     
-    override func viewWillAppear(_ animated: Bool) {
-
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return members_list.count
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = membersTable.dequeueReusableCell(withIdentifier: "playerNameCell", for: indexPath)
+        cell.textLabel?.text = members_list[indexPath.row]
+        return cell
+    }
+    
+    
+
+    
+
     
 
     override func viewDidLoad() {
@@ -28,12 +43,6 @@ class HostViewController: UIViewController {
         SocketIOManager.shared.socket.emit("connectHostUser", self.nickname ?? "no name")
         
         
-        if let nickname = self.nickname {
-            members.append(nickname)
-            for element in members {
-                print("Member: " + element)
-            }
-        }
         
         SocketIOManager.shared.socket.on("roomcode") {data, ack in
             if let rCode = data[0] as? String {
@@ -43,10 +52,23 @@ class HostViewController: UIViewController {
             
         }
         
+        SocketIOManager.shared.socket.on("room_members_new"){data, ack in
+            if let members = data[0] as? [String]{
+                self.members_list = members
+                self.membersTable.reloadData()
+            }
+        }
+        
 
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+    
+    
+ 
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -58,10 +80,9 @@ class HostViewController: UIViewController {
     
     
     
-    @IBAction func launch_game(_ sender: UIButton) {
-       
-       
     
+    @IBAction func launch_game(_ sender: UIButton) {
+            SocketIOManager.shared.socket.emit("launchGame", self.roomCode.text!)
     }
     
     /*

@@ -7,7 +7,7 @@ import random
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
-words = ['battery', 'correct', 'horse', 'staple']
+words = ['battery', 'correct', 'horse', 'staple', 'cart', 'dart', 'mart', 'patty', 'lefty', 'golf', 'mall', 'post', 'dote', 'mote', 'fole', 'doge', 'luck', 'gold']
 rooms = []
 
 room_members = {}
@@ -30,6 +30,8 @@ def on_connect_host(nickname):
     print(room_members)
     print(nickname + " has joined")
     emit("roomcode", room)
+    emit("room_members_new", room_members[room], room = room)
+
 
 
 def generateRoomCode():
@@ -46,8 +48,13 @@ def on_connect_player(data):
     room_members[roomCode].append(name)
     print(room_members)
     print(name + " has joined")
+    emit("room_members_new", room_members[roomCode], room = roomCode)
 
 
+@socketio.on('launchGame')
+def on_launch(roomCode):
+    print(roomCode + " is launching now")
+    # send game start to everyone connected, take them to new screen
 
 
     # send(username + ' has entered the room.', room=room)
