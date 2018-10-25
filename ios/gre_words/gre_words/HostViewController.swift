@@ -52,11 +52,20 @@ class HostViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
         }
         
+        
+        
+        
         SocketIOManager.shared.socket.on("room_members_new"){data, ack in
             if let members = data[0] as? [String]{
                 self.members_list = members
                 self.membersTable.reloadData()
             }
+        }
+        
+        
+        SocketIOManager.shared.socket.on("gameStart") {data, ack in
+                self.performSegue(withIdentifier: "startGameSegue", sender: nil)
+            
         }
         
 
@@ -85,14 +94,20 @@ class HostViewController: UIViewController, UITableViewDataSource, UITableViewDe
             SocketIOManager.shared.socket.emit("launchGame", self.roomCode.text!)
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "startGameSegue" {
+            let controller = segue.destination as! gameViewController
+            
+            
+        }
+        
+        
     }
-    */
+ 
 
 }

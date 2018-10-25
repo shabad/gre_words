@@ -23,6 +23,12 @@ class WaitingRoomViewController: UIViewController, UITableViewDataSource, UITabl
                 self.members_list = members
                 self.membersTable.reloadData()
             }
+        
+        }
+        
+        SocketIOManager.shared.socket.on("gameStart") {data, ack in
+            self.performSegue(withIdentifier: "startGameSegue", sender: nil)
+            
         }
 
         // Do any additional setup after loading the view.
@@ -40,14 +46,19 @@ class WaitingRoomViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "startGameSegue" {
+            let controller = segue.destination as! gameViewController
+            
+            
+        }
     }
-    */
+ 
 
 }

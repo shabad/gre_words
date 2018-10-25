@@ -54,10 +54,8 @@ def on_connect_player(data):
 @socketio.on('launchGame')
 def on_launch(roomCode):
     print(roomCode + " is launching now")
-    # send game start to everyone connected, take them to new screen
+    emit("gameStart", room = roomCode)
 
-
-    # send(username + ' has entered the room.', room=room)
 
 @socketio.on('leave')
 def on_leave(data):

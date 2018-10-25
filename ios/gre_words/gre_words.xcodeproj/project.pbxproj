@@ -19,6 +19,7 @@
 		C361DF212178F757000429D6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C361DF202178F756000429D6 /* Default-568h@2x.png */; };
 		C361DF232179063C000429D6 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361DF222179063C000429D6 /* SocketIOManager.swift */; };
 		C39019CD218175E900575F5C /* WaitingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39019CC218175E900575F5C /* WaitingRoomViewController.swift */; };
+		C39019CF21824AA200575F5C /* gameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39019CE21824AA200575F5C /* gameViewController.swift */; };
 		CD4AD5562AAB1EE5CD289FDE /* Pods_gre_words.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C94EDF6154F2855D307835 /* Pods_gre_words.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		C361DF202178F756000429D6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C361DF222179063C000429D6 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		C39019CC218175E900575F5C /* WaitingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomViewController.swift; sourceTree = "<group>"; };
+		C39019CE21824AA200575F5C /* gameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameViewController.swift; sourceTree = "<group>"; };
 		C5C94EDF6154F2855D307835 /* Pods_gre_words.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gre_words.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -92,6 +94,7 @@
 				C39019CC218175E900575F5C /* WaitingRoomViewController.swift */,
 				C361DF1E2178E64E000429D6 /* JoinViewController.swift */,
 				C361DF1C2178E637000429D6 /* HostViewController.swift */,
+				C39019CE21824AA200575F5C /* gameViewController.swift */,
 				C361DF222179063C000429D6 /* SocketIOManager.swift */,
 				C35518E5217669C1005C28A2 /* Assets.xcassets */,
 				C35518E7217669C1005C28A2 /* LaunchScreen.storyboard */,
@@ -232,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C39019CF21824AA200575F5C /* gameViewController.swift in Sources */,
 				C35518E1217669BC005C28A2 /* ViewController.swift in Sources */,
 				C39019CD218175E900575F5C /* WaitingRoomViewController.swift in Sources */,
 				C361DF1D2178E637000429D6 /* HostViewController.swift in Sources */,
