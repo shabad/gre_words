@@ -199,7 +199,6 @@
                                 <state key="normal" title="Join Game"/>
                                 <connections>
                                     <action selector="onJoinWithSender:" destination="nid-gf-1FY" eventType="touchUpInside" id="Do1-Nf-wcC"/>
-                                    <segue destination="Q3V-Gd-qGe" kind="show" id="tGJ-Qe-7LH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -217,6 +216,7 @@
                     <navigationItem key="navigationItem" title="Join Game" id="4nS-wG-tyO"/>
                     <connections>
                         <outlet property="roomCode" destination="CEH-z2-A4r" id="rne-Cf-V66"/>
+                        <segue destination="Q3V-Gd-qGe" kind="show" identifier="waitingRoomSegue" id="fhB-8l-X04"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="We6-cb-gqT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -290,20 +290,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3Y-8g-gbW">
-                                <rect key="frame" x="186" y="317" width="46" height="21"/>
+                                <rect key="frame" x="184" y="94" width="46" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What is the meaning of byzantine (n)?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZN-qU-ZOT">
+                                <rect key="frame" x="36" y="123" width="343" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3T-Xs-vwb">
+                                <rect key="frame" x="85" y="221" width="222" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8U-VD-1jR">
+                                <rect key="frame" x="85" y="267" width="222" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Bl-iL-wx1">
+                                <rect key="frame" x="85" y="318" width="222" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEQ-ja-ptq">
+                                <rect key="frame" x="85" y="368" width="222" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lKx-hC-vga"/>
                     </view>
+                    <connections>
+                        <outlet property="gameLabel" destination="g3Y-8g-gbW" id="9cp-8W-NBm"/>
+                        <outlet property="gameQuestion" destination="tZN-qU-ZOT" id="CUy-UI-P7A"/>
+                        <outlet property="option1" destination="W3T-Xs-vwb" id="A12-Kt-TfE"/>
+                        <outlet property="option2" destination="O8U-VD-1jR" id="xyG-NT-BVQ"/>
+                        <outlet property="option3" destination="9Bl-iL-wx1" id="v9f-gP-2pI"/>
+                        <outlet property="option4" destination="qEQ-ja-ptq" id="pjT-t5-Gtg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5sV-am-i8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4083" y="-106"/>
+            <point key="canvasLocation" x="4082.6086956521744" y="-106.79347826086958"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8HT-Zg-28N">

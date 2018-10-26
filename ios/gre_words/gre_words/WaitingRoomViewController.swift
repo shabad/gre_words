@@ -15,6 +15,9 @@ class WaitingRoomViewController: UIViewController, UITableViewDataSource, UITabl
     
     var members_list: [String] = []
     
+    var roomCode: String?
+    var playerName: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,6 +58,9 @@ class WaitingRoomViewController: UIViewController, UITableViewDataSource, UITabl
         // Pass the selected object to the new view controller.
         if segue.identifier == "startGameSegue" {
             let controller = segue.destination as! gameViewController
+            controller.roomCode = self.roomCode
+            controller.playerName = self.playerName
+            controller.isHost = false
             
             
         }

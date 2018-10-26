@@ -102,8 +102,9 @@ class HostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if segue.identifier == "startGameSegue" {
             let controller = segue.destination as! gameViewController
-            
-            
+            controller.roomCode = self.roomCode.text
+            controller.playerName = self.nickname
+            controller.isHost = true
         }
         
         

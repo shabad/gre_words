@@ -27,16 +27,25 @@ class JoinViewController: UIViewController {
         
         SocketIOManager.shared.socket.emit("connectPlayerUser", ["nickname": self.nickname, "roomCode": self.roomCode.text])
         
+            self.performSegue(withIdentifier: "waitingRoomSegue", sender: nil)
+        
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "waitingRoomSegue" {
+            let controller = segue.destination as! WaitingRoomViewController
+            controller.roomCode = self.roomCode.text
+            controller.playerName = self.nickname
+            
+            
+        }
+        
     }
-    */
+ 
 
 }
