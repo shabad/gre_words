@@ -57,6 +57,18 @@ def on_launch(roomCode):
     emit("gameStart", room = roomCode)
 
 
+
+@socketio.on('getQuestion')
+def on_get_question(data):
+    roomCode = data['roomCode']
+    question_num = data['question_number']
+
+    emit("gameQuestion", "What is the meaning of Life?", room = roomCode)
+
+
+
+
+
 @socketio.on('leave')
 def on_leave(data):
     name = data['name']
