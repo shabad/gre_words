@@ -29,6 +29,7 @@ class gameViewController: UIViewController {
         if(isHost == true){
             SocketIOManager.shared.socket.emit("getQuestion", ["roomCode": self.roomCode!, "question_number": self.questionNum])
         }
+        self.navigationItem.title = "Question " + String(self.questionNum) ;
         
         
         SocketIOManager.shared.socket.on("gameQuestion"){data, ack in

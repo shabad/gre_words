@@ -7,7 +7,8 @@ import random
 
 app = Flask(__name__)
 from models import db
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:newrootpassword@localhost/saad'
+########## Remember to change this ###############
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Shabad@97@localhost/saad'
 # db = SQLAlchemy(app)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
@@ -15,7 +16,7 @@ words = ['battery', 'correct', 'horse', 'staple', 'cart', 'dart', 'mart', 'patty
 rooms = []
 
 room_members = {}
-
+# room_members = {'bateerty': {'Shabad': 0, 'Saad': 0, 'Roman': 0}, ..........}
 
 @socketio.on('connect')
 def on_connect():
@@ -29,12 +30,14 @@ def on_connect_host(nickname):
     name = nickname
     room = generateRoomCode()
     join_room(room)
-    room_members[room] = []
-    room_members[room].append(name)
+    room_members[room] = {}
+    # room_members[room].append(name)
+    room_members[room][name] = 0
     print(room_members)
     print(nickname + " has joined")
     emit("roomcode", room)
-    emit("room_members_new", room_members[room], room = room)
+
+    emit("room_members_new", list(room_members[room].keys()), room = room)
 
 
 
@@ -49,10 +52,10 @@ def on_connect_player(data):
     name = data['nickname']
     roomCode = data['roomCode']
     join_room(roomCode)
-    room_members[roomCode].append(name)
+    room_members[roomCode][name] = 0
     print(room_members)
     print(name + " has joined")
-    emit("room_members_new", room_members[roomCode], room = roomCode)
+    emit("room_members_new", list(room_members[roomCode].keys()), room = roomCode)
 
 
 @socketio.on('launchGame')
