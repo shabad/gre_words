@@ -1,10 +1,14 @@
 from flask import Flask
 from flask_socketio import SocketIO, send, emit, join_room, leave_room
+from flask_sqlalchemy import SQLAlchemy
 import random
 
 
 
 app = Flask(__name__)
+from models import db
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:newrootpassword@localhost/saad'
+# db = SQLAlchemy(app)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 words = ['battery', 'correct', 'horse', 'staple', 'cart', 'dart', 'mart', 'patty', 'lefty', 'golf', 'mall', 'post', 'dote', 'mote', 'fole', 'doge', 'luck', 'gold']
@@ -75,6 +79,10 @@ def on_leave(data):
     room = data['room']
     leave_room(room)
     send(username + ' has left the room.', room=room)
+
+
+
+db.create_all()
 
 
 if __name__ == '__main__':
