@@ -307,27 +307,47 @@
                                 <rect key="frame" x="85" y="221" width="222" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="selectOptionWithSender:" destination="FD2-Rt-4ro" eventType="touchUpInside" id="ixt-o2-dZB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8U-VD-1jR">
                                 <rect key="frame" x="85" y="267" width="222" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="selectOptionWithSender:" destination="FD2-Rt-4ro" eventType="touchUpInside" id="fvR-op-E1V"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Bl-iL-wx1">
                                 <rect key="frame" x="85" y="318" width="222" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="selectOptionWithSender:" destination="FD2-Rt-4ro" eventType="touchUpInside" id="I3J-df-vNO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEQ-ja-ptq">
                                 <rect key="frame" x="85" y="368" width="222" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="selectOptionWithSender:" destination="FD2-Rt-4ro" eventType="touchUpInside" id="BZh-l4-DeX"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oV-Kf-2eP">
+                                <rect key="frame" x="175" y="421" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lKx-hC-vga"/>
                     </view>
                     <connections>
+                        <outlet property="ans" destination="3oV-Kf-2eP" id="f1c-3K-2cB"/>
                         <outlet property="gameLabel" destination="g3Y-8g-gbW" id="9cp-8W-NBm"/>
                         <outlet property="gameQuestion" destination="tZN-qU-ZOT" id="CUy-UI-P7A"/>
                         <outlet property="option1" destination="W3T-Xs-vwb" id="A12-Kt-TfE"/>

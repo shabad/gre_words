@@ -13,6 +13,9 @@ class gameViewController: UIViewController {
     var roomCode: String?
     var playerName: String?
     var questionNum: Int = 1
+  
+    
+    var correct_answer: String?
     var isHost: Bool?
     
     @IBOutlet weak var gameLabel: UILabel!
@@ -21,6 +24,8 @@ class gameViewController: UIViewController {
     @IBOutlet weak var option2: UIButton!
     @IBOutlet weak var option3: UIButton!
     @IBOutlet weak var option4: UIButton!
+    @IBOutlet weak var ans: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,18 +38,50 @@ class gameViewController: UIViewController {
         
         
         SocketIOManager.shared.socket.on("gameQuestion"){data, ack in
-            if let question = data[0] as? String{
-                let q = Question(question: question, option1: "Option1", option2: "option2", option3: "intricate", option4: "Option4")
-                self.gameQuestion.text = q.question
-                self.option1.setTitle(q.option1, for: .normal)
-                self.option2.setTitle(q.option2, for: .normal)
-                self.option3.setTitle(q.option3, for: .normal)
-                self.option4.setTitle(q.option4, for: .normal)
-               
+
+            if let arr = data as? [[String: Any]] {
+                if let txt = arr[0]["question"] as? String {
+                     self.gameQuestion.text = txt
+                }
+                if let txt = arr[0]["answer"] as? String {
+                    self.correct_answer = txt
+                    self.ans.text = txt
+                }
+                if let txt = arr[0]["option1"] as? String {
+                    self.option1.setTitle(txt, for: .normal)
+                }
+                
+                if let txt = arr[0]["option2"] as? String {
+                    self.option2.setTitle(txt, for: .normal)
+                }
+                
+                if let txt = arr[0]["option3"] as? String {
+                    self.option3.setTitle(txt, for: .normal)
+                }
+                
+                if let txt = arr[0]["option4"] as? String {
+                    self.option4.setTitle(txt, for: .normal)
+                }
+                
             }
+            
+  
         }
         
         // Do any additional setup after loading the view.
+    }
+    
+    
+    
+    @IBAction func selectOption(sender: UIButton) {
+        
+        if sender.title(for: .normal) == self.correct_answer{
+            SocketIOManager.shared.socket.emit("correct_answer", ["roomCode": self.roomCode!, "question_number": self.questionNum, "name": self.playerName!])
+        }
+        else{
+            SocketIOManager.shared.socket.emit("wrong_answer", ["roomCode": self.roomCode!, "question_number": self.questionNum, "name": self.playerName!])
+        }
+        
     }
     
 

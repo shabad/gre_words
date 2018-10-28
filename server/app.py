@@ -1,14 +1,16 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_socketio import SocketIO, send, emit, join_room, leave_room
 from flask_sqlalchemy import SQLAlchemy
 import random
+import json
 
 
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Shabad@97@localhost/saad'
 from models import db
 ########## Remember to change this ###############
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Shabad@97@localhost/saad'
+
 # db = SQLAlchemy(app)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
@@ -17,6 +19,8 @@ rooms = []
 
 room_members = {}
 # room_members = {'bateerty': {'Shabad': 0, 'Saad': 0, 'Roman': 0}, ..........}
+
+room_answers = {}
 
 @socketio.on('connect')
 def on_connect():
@@ -70,7 +74,39 @@ def on_get_question(data):
     roomCode = data['roomCode']
     question_num = data['question_number']
 
-    emit("gameQuestion", "What is the meaning of Life?", room = roomCode)
+
+    obj = {'question': "What is the meaning of Life?", 'answer': "byzantine", 'option1': "life", 'option2': "sex", 'option3': "mothre", 'option4': "byzantine"}
+    room_answers[roomCode] = {}
+    room_answers[roomCode][question_num] = []
+
+    emit("gameQuestion", obj, room = roomCode)
+
+
+@socketio.on('correct_answer')
+def on_correct_answer(data):
+    roomCode = data['roomCode']
+    question_num = data['question_number']
+    playerName = data['name']
+    room_answers[roomCode][question_num].append(playerName)
+    room_members[roomCode][playerName] = room_members[roomCode][playerName] + 1
+
+    if len(room_answers[roomCode][question_num]) == len(list(room_members[roomCode].keys())):
+        print("Everyone has now answered")
+
+
+
+@socketio.on('wrong_answer')
+def on_wrong_answer(data):
+    roomCode = data['roomCode']
+    question_num = data['question_number']
+    playerName = data['name']
+    room_answers[roomCode][question_num].append(playerName)
+    # room_members[roomCode][playerName] = room_members[roomCode][playerName] + 1
+
+    if len(room_answers[roomCode][question_num]) == len(list(room_members[roomCode].keys())):
+        print("Everyone has now answered")
+
+
 
 
 
