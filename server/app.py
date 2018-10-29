@@ -92,7 +92,9 @@ def on_correct_answer(data):
 
     if len(room_answers[roomCode][question_num]) == len(list(room_members[roomCode].keys())):
         print("Everyone has now answered")
-
+        print(room_members[roomCode])
+        emit("scoreScreen", {'question_num': question_num, 'roomCode': roomCode}, room = roomCode)
+        emit("gameScores", room_members[roomCode], room = roomCode)
 
 
 @socketio.on('wrong_answer')
@@ -105,6 +107,16 @@ def on_wrong_answer(data):
 
     if len(room_answers[roomCode][question_num]) == len(list(room_members[roomCode].keys())):
         print("Everyone has now answered")
+        print(room_members[roomCode])
+        emit("scoreScreen", {'question_num': question_num, 'roomCode': roomCode}, room = roomCode)
+        emit("gameScores", room_members[roomCode], room = roomCode)
+
+@socketio.on('getScores')
+def on_get_scores(data):
+    roomCode = data['roomCode']
+
+
+    emit("gameScores", room_members[roomCode], room = roomCode)
 
 
 

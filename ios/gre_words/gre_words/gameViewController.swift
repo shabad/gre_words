@@ -31,9 +31,9 @@ class gameViewController: UIViewController {
         super.viewDidLoad()
         gameLabel.text = roomCode
         
-        if(isHost == true){
+//        if(isHost == true){
             SocketIOManager.shared.socket.emit("getQuestion", ["roomCode": self.roomCode!, "question_number": self.questionNum])
-        }
+//        }
         self.navigationItem.title = "Question " + String(self.questionNum) ;
         
         
@@ -68,6 +68,13 @@ class gameViewController: UIViewController {
   
         }
         
+        
+        SocketIOManager.shared.socket.on("scoreScreen"){data, ack in
+            self.performSegue(withIdentifier: "scoreScreenSegue", sender: nil)
+            
+            
+        }
+        
         // Do any additional setup after loading the view.
     }
     
@@ -85,14 +92,20 @@ class gameViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "scoreScreenSegue" {
+            let controller = segue.destination as! ScoresViewController
+            controller.roomCode = self.roomCode
+            
+            
+        }
     }
-    */
+ 
 
 }

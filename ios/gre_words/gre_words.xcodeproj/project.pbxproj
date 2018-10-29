@@ -21,6 +21,7 @@
 		C39019CD218175E900575F5C /* WaitingRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39019CC218175E900575F5C /* WaitingRoomViewController.swift */; };
 		C39019CF21824AA200575F5C /* gameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39019CE21824AA200575F5C /* gameViewController.swift */; };
 		C39019D121837BA800575F5C /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39019D021837BA800575F5C /* Question.swift */; };
+		C39019D52185736C00575F5C /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39019D42185736C00575F5C /* ScoresViewController.swift */; };
 		CD4AD5562AAB1EE5CD289FDE /* Pods_gre_words.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C94EDF6154F2855D307835 /* Pods_gre_words.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		C39019CC218175E900575F5C /* WaitingRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRoomViewController.swift; sourceTree = "<group>"; };
 		C39019CE21824AA200575F5C /* gameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameViewController.swift; sourceTree = "<group>"; };
 		C39019D021837BA800575F5C /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		C39019D42185736C00575F5C /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
 		C5C94EDF6154F2855D307835 /* Pods_gre_words.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gre_words.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -93,6 +95,7 @@
 				C35518E0217669BC005C28A2 /* ViewController.swift */,
 				C361DF1A2178480F000429D6 /* HomeViewController.swift */,
 				C35518E2217669BC005C28A2 /* Main.storyboard */,
+				C39019D42185736C00575F5C /* ScoresViewController.swift */,
 				C39019D021837BA800575F5C /* Question.swift */,
 				C39019CC218175E900575F5C /* WaitingRoomViewController.swift */,
 				C361DF1E2178E64E000429D6 /* JoinViewController.swift */,
@@ -238,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C39019D52185736C00575F5C /* ScoresViewController.swift in Sources */,
 				C39019CF21824AA200575F5C /* gameViewController.swift in Sources */,
 				C35518E1217669BC005C28A2 /* ViewController.swift in Sources */,
 				C39019CD218175E900575F5C /* WaitingRoomViewController.swift in Sources */,
