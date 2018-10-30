@@ -33,7 +33,7 @@ class ScoresViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         
 //        SocketIOManager.shared.socket.emit("getScores", ["roomCode": self.roomCode!])
-        
+        objectArray.removeAll()
         
         SocketIOManager.shared.socket.on("gameScores"){data, ack in
             
