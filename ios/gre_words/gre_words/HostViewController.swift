@@ -43,7 +43,6 @@ class HostViewController: UIViewController, UITableViewDataSource, UITableViewDe
         SocketIOManager.shared.socket.emit("connectHostUser", self.nickname ?? "no name")
         
         
-        
         SocketIOManager.shared.socket.on("roomcode") {data, ack in
             if let rCode = data[0] as? String {
                 self.roomCode.text = rCode
@@ -51,6 +50,14 @@ class HostViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
             
         }
+        
+        
+        
+        
+        
+        
+        
+
         
         
         

@@ -18,7 +18,7 @@ class SocketIOManager: NSObject {
     var socket: SocketIOClient!
     
     // defaultNamespaceSocket and swiftSocket both share a single connection to the server
-    let manager = SocketManager(socketURL: URL(string: "http://localhost:5000")!, config: [.log(true), .compress])
+    let manager = SocketManager(socketURL: URL(string: "http://localhost:5000")!, config: [.log(true), .forceWebsockets(true)])
     
     override init() {
         super.init()

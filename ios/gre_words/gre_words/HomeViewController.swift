@@ -15,12 +15,18 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        SocketIOManager.shared.socket.connect()
+       
 
         // Do any additional setup after loading the view.
     }
     
 
     @IBAction func hostGame(_ sender: UIButton) {
+        
+        
         let alertController = UIAlertController(title: "Enter a nickname", message: "", preferredStyle: .alert)
         
         let submitNameAction = UIAlertAction(title: "Okay", style: .default) { (action) in

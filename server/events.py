@@ -1,5 +1,6 @@
 from __main__ import app, socketio
 import random
+
 from flask_socketio import SocketIO, send, emit, join_room, leave_room
 
 words = ['battery', 'correct', 'horse', 'staple', 'cart', 'dart', 'mart', 'patty', 'lefty', 'golf', 'mall', 'post', 'dote', 'mote', 'fole', 'doge', 'luck', 'gold']
@@ -13,13 +14,15 @@ room_answers = {}
 
 @socketio.on('connect')
 def on_connect():
-    print("Connectd")
+    print("Connectedd bitchs")
+
 
 
 
 
 @socketio.on('connectHostUser')
 def on_connect_host(nickname):
+    print("Host has been connected")
     name = nickname
     room = generateRoomCode()
     join_room(room)
