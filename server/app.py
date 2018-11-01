@@ -6,7 +6,7 @@ import json
 import pandas as pd
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:newrootpassword@localhost/saad'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Shabad@97@localhost/saad'
 from models import db
 from models import GRE, Users
 

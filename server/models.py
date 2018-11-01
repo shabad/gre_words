@@ -23,12 +23,3 @@ class Users(db.Model):
 	Email = db.Column(db.String(30), nullable = False)
 	Password = db.Column(db.String(25), nullable = False)
 	Avatar = db.Column(db.String(130), nullable = True)
-
-
-# def generateQuestion():
-#     answer = random(GRE(word, meaning))
-#     for row in xls['WORD']:
-#         b = random(xls['WORD'])
-#         c = random(xls['WORD'])
-#         d = random(xls['WORD'])
-#     return (answer, b, c, d)
