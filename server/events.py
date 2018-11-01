@@ -78,6 +78,7 @@ def on_correct_answer(data):
         print("Everyone has now answered")
         print(room_members[roomCode])
         emit("scoreScreen", {'question_num': question_num, 'roomCode': roomCode}, room = roomCode)
+        print("SENDING SEGUE NOW")
         emit("gameScores", room_members[roomCode], room = roomCode)
 
 
@@ -93,15 +94,11 @@ def on_wrong_answer(data):
         print("Everyone has now answered")
         print(room_members[roomCode])
         emit("scoreScreen", {'question_num': question_num, 'roomCode': roomCode}, room = roomCode)
+        print("SENDING SEGUE NOW")
         emit("gameScores", room_members[roomCode], room = roomCode)
 
-@socketio.on('getScores')
-def on_get_scores(data):
-    roomCode = data['roomCode']
-    emit("gameScores", room_members[roomCode], room = roomCode)
 
-
-@socketio.on('nextQuestion')
+@socketio.on('getNextQuestion')
 def on_next_question(roomCode):
     emit("nextQuestion", room = roomCode)
 

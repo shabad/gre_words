@@ -17,6 +17,7 @@ class gameViewController: UIViewController {
     
     var correct_answer: String?
     var isHost: Bool?
+    var sentScoreSegue: Bool = false
     
     @IBOutlet weak var gameLabel: UILabel!
     @IBOutlet weak var gameQuestion: UILabel!
@@ -68,10 +69,13 @@ class gameViewController: UIViewController {
   
         }
         
-        
+   
         SocketIOManager.shared.socket.on("scoreScreen"){data, ack in
-            self.performSegue(withIdentifier: "scoreScreenSegue", sender: nil)
-            
+            if(self.sentScoreSegue == false){
+                self.sentScoreSegue = true
+                self.performSegue(withIdentifier: "scoreScreenSegue", sender: nil)
+                
+            }
             
         }
         
@@ -103,6 +107,8 @@ class gameViewController: UIViewController {
             let controller = segue.destination as! ScoresViewController
             controller.roomCode = self.roomCode
             controller.playerName = self.playerName
+            controller.questionNum = self.questionNum
+            controller.nextQuestionSegueSent = false
             
             
         }

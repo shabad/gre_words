@@ -1,6 +1,6 @@
 from __main__ import app
 from flask_sqlalchemy import SQLAlchemy
-import pandas as pd
+
 
 
 db = SQLAlchemy(app)

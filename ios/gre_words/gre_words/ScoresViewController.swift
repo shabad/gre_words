@@ -25,6 +25,8 @@ class ScoresViewController: UIViewController, UITableViewDataSource, UITableView
     
     var playerName: String?
     var roomCode: String?
+    var questionNum: Int?
+    var nextQuestionSegueSent: Bool = false
     
     
     
@@ -36,8 +38,12 @@ class ScoresViewController: UIViewController, UITableViewDataSource, UITableView
         objectArray.removeAll()
         
         SocketIOManager.shared.socket.on("nextQuestion"){data, ack in
+            if (self.nextQuestionSegueSent == false){
+                self.nextQuestionSegueSent = true
+                self.performSegue(withIdentifier: "nextQuestion", sender: nil)
+            }
             
-            self.performSegue(withIdentifier: "nextQuestion", sender: nil)
+            
             
             
         }
@@ -79,7 +85,7 @@ class ScoresViewController: UIViewController, UITableViewDataSource, UITableView
     
 
     @IBAction func nextQuestion(_ sender: UIButton) {
-        SocketIOManager.shared.socket.emit("nextQuestion", self.roomCode!)
+        SocketIOManager.shared.socket.emit("getNextQuestion", self.roomCode!)
         
     }
     
@@ -96,7 +102,8 @@ class ScoresViewController: UIViewController, UITableViewDataSource, UITableView
             let controller = segue.destination as! gameViewController
             controller.roomCode = self.roomCode
             controller.playerName = self.playerName
-            controller.questionNum = controller.questionNum + 1
+            controller.questionNum = self.questionNum! + 1
+            controller.sentScoreSegue = false
             
             
         }
