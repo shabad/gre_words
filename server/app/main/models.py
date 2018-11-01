@@ -1,9 +1,8 @@
-from __main__ import app
+
+
 from flask_sqlalchemy import SQLAlchemy
+from app import db
 
-
-
-db = SQLAlchemy(app)
 
 
 class GRE(db.Model):
