@@ -15,6 +15,8 @@ class GRE(db.Model):
         self.Meaning = meaning
 
 
+
+
 class Users(db.Model):
 	id = db.Column(db.Integer, primary_key = True, autoincrement = True)
 	Username = db.Column(db.String(20), primary_key = True)

@@ -13,7 +13,7 @@ app.config['SECRET_KEY'] = 'gjr39dkjn344_!67#'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Shabad@97@localhost/saad'
 db = SQLAlchemy(app)
 
-
+from app import models
 
 
 
@@ -22,7 +22,7 @@ from .main import main as main_blueprint
 app.register_blueprint(main_blueprint)
 db.create_all()
 
-from .main.models import GRE
+from app.models import GRE
 
 xls = pd.read_excel("wordlist.xls")
 
