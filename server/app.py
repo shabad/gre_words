@@ -22,7 +22,7 @@ def test_message(message):
 
 db.create_all()
 
-xls = pd.read_excel("/Users/Saadkn/Desktop/wordlist.xls")
+xls = pd.read_excel("wordlist.xls")
 
 
 if db.session.query(GRE).count() == 0:
