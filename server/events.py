@@ -17,9 +17,6 @@ def on_connect():
     print("Connectedd bitchs")
 
 
-
-
-
 @socketio.on('connectHostUser')
 def on_connect_host(nickname):
     print("Host has been connected")
@@ -32,9 +29,7 @@ def on_connect_host(nickname):
     print(room_members)
     print(nickname + " has joined")
     emit("roomcode", room)
-
     emit("room_members_new", list(room_members[room].keys()), room = room)
-
 
 
 def generateRoomCode():
@@ -60,13 +55,10 @@ def on_launch(roomCode):
     emit("gameStart", room = roomCode)
 
 
-
 @socketio.on('getQuestion')
 def on_get_question(data):
     roomCode = data['roomCode']
     question_num = data['question_number']
-
-
     obj = {'question': "What is the meaning of Life?", 'answer': "byzantine", 'option1': "life", 'option2': "sex", 'option3': "mothre", 'option4': "byzantine"}
     room_answers[roomCode] = {}
     room_answers[roomCode][question_num] = []
@@ -106,17 +98,12 @@ def on_wrong_answer(data):
 @socketio.on('getScores')
 def on_get_scores(data):
     roomCode = data['roomCode']
-
-
     emit("gameScores", room_members[roomCode], room = roomCode)
-
 
 
 @socketio.on('nextQuestion')
 def on_next_question(roomCode):
     emit("nextQuestion", room = roomCode)
-
-
 
 
 @socketio.on('leave')
