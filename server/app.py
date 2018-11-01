@@ -22,12 +22,14 @@ def test_message(message):
 
 db.create_all()
 
-# xls = pd.read_excel("/Users/Saadkn/Desktop/wordlist.xls")
-#
-# for a, b in zip(xls['WORD'], xls['DEFINITION']):
-#     info = GRE(a, b)
-#     db.session.add(info)
-#     db.session.commit()
+xls = pd.read_excel("/Users/Saadkn/Desktop/wordlist.xls")
+
+
+if db.session.query(GRE).count() == 0:
+    for a, b in zip(xls['WORD'], xls['DEFINITION']):
+        info = GRE(a, b)
+        db.session.add(info)
+        db.session.commit()
 
 if __name__ == '__main__':
     socketio.run(app)

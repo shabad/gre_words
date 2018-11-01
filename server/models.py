@@ -25,10 +25,10 @@ class Users(db.Model):
 	Avatar = db.Column(db.String(130), nullable = True)
 
 
-def generateQuestion():
-    answer = random(GRE(word, meaning))
-    for row in xls['WORD']:
-        b = random(xls['WORD'])
-        c = random(xls['WORD'])
-        d = random(xls['WORD'])
-    return (answer, b, c, d)
+# def generateQuestion():
+#     answer = random(GRE(word, meaning))
+#     for row in xls['WORD']:
+#         b = random(xls['WORD'])
+#         c = random(xls['WORD'])
+#         d = random(xls['WORD'])
+#     return (answer, b, c, d)
