@@ -35,6 +35,15 @@ class ScoresViewController: UIViewController, UITableViewDataSource, UITableView
 //        SocketIOManager.shared.socket.emit("getScores", ["roomCode": self.roomCode!])
         objectArray.removeAll()
         
+        SocketIOManager.shared.socket.on("nextQuestion"){data, ack in
+            
+            self.performSegue(withIdentifier: "nextQuestion", sender: nil)
+            
+            
+        }
+        
+        
+        
         SocketIOManager.shared.socket.on("gameScores"){data, ack in
             
             if let arr = data as? [[String: Any]] {
@@ -69,16 +78,29 @@ class ScoresViewController: UIViewController, UITableViewDataSource, UITableView
 
     
 
+    @IBAction func nextQuestion(_ sender: UIButton) {
+        SocketIOManager.shared.socket.emit("nextQuestion", self.roomCode!)
+        
+    }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "nextQuestion" {
+            let controller = segue.destination as! gameViewController
+            controller.roomCode = self.roomCode
+            controller.playerName = self.playerName
+            controller.questionNum = controller.questionNum + 1
+            
+            
+        }
     }
-    */
+ 
 
 }

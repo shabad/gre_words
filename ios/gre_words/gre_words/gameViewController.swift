@@ -102,6 +102,7 @@ class gameViewController: UIViewController {
         if segue.identifier == "scoreScreenSegue" {
             let controller = segue.destination as! ScoresViewController
             controller.roomCode = self.roomCode
+            controller.playerName = self.playerName
             
             
         }

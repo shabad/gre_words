@@ -112,6 +112,9 @@ def on_get_scores(data):
 
 
 
+@socketio.on('nextQuestion')
+def on_next_question(roomCode):
+    emit("nextQuestion", room = roomCode)
 
 
 

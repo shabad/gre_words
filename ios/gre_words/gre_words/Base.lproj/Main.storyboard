@@ -407,6 +407,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Fn-fe-Tap">
                                 <rect key="frame" x="158" y="676" width="98" height="30"/>
                                 <state key="normal" title="Next Question"/>
+                                <connections>
+                                    <action selector="nextQuestion:" destination="9kM-X2-kPy" eventType="touchUpInside" id="ftc-Jx-Lc6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -418,6 +421,7 @@
                     </view>
                     <connections>
                         <outlet property="scoreTable" destination="ODp-A2-NkZ" id="F1a-v2-dFJ"/>
+                        <segue destination="FD2-Rt-4ro" kind="show" identifier="nextQuestion" id="E4q-Wr-h5c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gEx-JD-5eU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -444,6 +448,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mrD-3F-Uyx"/>
+        <segue reference="E4q-Wr-h5c"/>
     </inferredMetricsTieBreakers>
 </document>
