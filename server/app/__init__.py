@@ -14,10 +14,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Shabad@97@localhos
 db = SQLAlchemy(app)
 
 from app import models
-
-
-
-
 from .main import main as main_blueprint
 app.register_blueprint(main_blueprint)
 db.create_all()
@@ -25,7 +21,6 @@ db.create_all()
 from app.models import GRE
 
 xls = pd.read_excel("wordlist.xls")
-
 
 if db.session.query(GRE).count() == 0:
     for a, b in zip(xls['WORD'], xls['DEFINITION']):

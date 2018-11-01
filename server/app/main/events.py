@@ -1,6 +1,8 @@
 import random
 from flask_socketio import SocketIO, send, emit, join_room, leave_room
 from .. import socketio
+from app.models import GRE
+
 
 
 words = ['battery', 'correct', 'horse', 'staple', 'cart', 'dart', 'mart', 'patty', 'lefty', 'golf', 'mall', 'post', 'dote', 'mote', 'fole', 'doge', 'luck', 'gold']
@@ -34,7 +36,6 @@ def on_connect_host(nickname):
 
 def generateRoomCode():
     secure_random = random.SystemRandom()
-
     return (secure_random.choice(words))
 
 
@@ -59,6 +60,7 @@ def on_launch(roomCode):
 def on_get_question(data):
     roomCode = data['roomCode']
     question_num = data['question_number']
+
     obj = {'question': "What is the meaning of Life?", 'answer': "byzantine", 'option1': "life", 'option2': "sex", 'option3': "mothre", 'option4': "byzantine"}
     room_answers[roomCode] = {}
     room_answers[roomCode][question_num] = []
@@ -88,7 +90,7 @@ def on_wrong_answer(data):
     question_num = data['question_number']
     playerName = data['name']
     room_answers[roomCode][question_num].append(playerName)
-    # room_members[roomCode][playerName] = room_members[roomCode][playerName] + 1
+    
 
     if len(room_answers[roomCode][question_num]) == len(list(room_members[roomCode].keys())):
         print("Everyone has now answered")
