@@ -1,16 +1,12 @@
 from flask import Flask
 from flask_socketio import SocketIO
 from flask_sqlalchemy import SQLAlchemy
-
 import pandas as pd
-
 socketio = SocketIO()
-
-
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'gjr39dkjn344_!67#'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Shabad@97@localhost/saad'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:newrootpassword@localhost/saad'
 db = SQLAlchemy(app)
 
 from app import models
@@ -27,8 +23,6 @@ if db.session.query(GRE).count() == 0:
         info = GRE(a, b)
         db.session.add(info)
         db.session.commit()
-
-
 
 
 socketio.init_app(app)

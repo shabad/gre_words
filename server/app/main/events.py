@@ -4,7 +4,6 @@ from .. import socketio
 from app.models import GRE
 
 
-
 words = ['battery', 'correct', 'horse', 'staple', 'cart', 'dart', 'mart', 'patty', 'lefty', 'golf', 'mall', 'post', 'dote', 'mote', 'fole', 'doge', 'luck', 'gold']
 rooms = []
 
@@ -37,6 +36,12 @@ def on_connect_host(nickname):
 def generateRoomCode():
     secure_random = random.SystemRandom()
     return (secure_random.choice(words))
+
+def getQuestion():
+    rand = random.randrange(0, session.query(GRE).count())
+    questionAnswer = db.session.query(GRE)[rand]
+    db.session.close()
+    return questionAnswer
 
 
 @socketio.on('connectPlayerUser')
@@ -90,7 +95,7 @@ def on_wrong_answer(data):
     question_num = data['question_number']
     playerName = data['name']
     room_answers[roomCode][question_num].append(playerName)
-    
+
 
     if len(room_answers[roomCode][question_num]) == len(list(room_members[roomCode].keys())):
         print("Everyone has now answered")
