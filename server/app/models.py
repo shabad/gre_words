@@ -9,3 +9,9 @@ class GRE(db.Model):
     def __init__(self, word, meaning):
         self.Word = word
         self.Meaning = meaning
+
+    def getQuestion():
+        rand = random.randrange(0, db.session.query(GRE).count())
+        questionAnswer = db.session.query(GRE)[rand]
+        db.session.close()
+        return questionAnswer

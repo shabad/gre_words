@@ -37,12 +37,6 @@ def generateRoomCode():
     secure_random = random.SystemRandom()
     return (secure_random.choice(words))
 
-def getQuestion():
-    rand = random.randrange(0, session.query(GRE).count())
-    questionAnswer = db.session.query(GRE)[rand]
-    db.session.close()
-    return questionAnswer
-
 
 @socketio.on('connectPlayerUser')
 def on_connect_player(data):
