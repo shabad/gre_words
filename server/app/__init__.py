@@ -6,7 +6,7 @@ socketio = SocketIO()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'gjr39dkjn344_!67#'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:newrootpassword@localhost/saad'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Shabad@97@localhost/saad'
 db = SQLAlchemy(app)
 
 from app import models
