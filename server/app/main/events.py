@@ -4,6 +4,7 @@ from .. import socketio
 from app.models import GRE
 
 
+
 words = ['battery', 'correct', 'horse', 'staple', 'cart', 'dart', 'mart', 'patty', 'lefty', 'golf', 'mall', 'post', 'dote', 'mote', 'fole', 'doge', 'luck', 'gold']
 rooms = []
 
@@ -65,6 +66,8 @@ def on_get_question(data):
     room_answers[roomCode][question_num] = []
 
     emit("gameQuestion", obj, room = roomCode)
+
+
 
 
 @socketio.on('correct_answer')
