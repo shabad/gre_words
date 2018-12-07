@@ -1,3 +1,2 @@
 language: python
-before_install: cd server
-script: cd server && python -m unittest
+script: cd $TRAVIS_BUILD_DIR/server && python -m unittest
