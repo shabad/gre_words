@@ -1,2 +1,3 @@
 language: python
-script: cd server && python -m unittest
+before_install: cd server
+script: python -m unittest
