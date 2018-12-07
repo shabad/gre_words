@@ -75,3 +75,7 @@ class getLeaderboardTest(unittest.TestCase):
     def test(self):
         players = {"Shabad": 0, "Shlok": 1}
         self.assertEqual([('Shlok', 1), ('Shabad', 0)], getLeaderboard(players))
+
+
+if __name__ == '__main__':
+    unittest.main()
