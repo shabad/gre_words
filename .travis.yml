@@ -1,2 +1,3 @@
 language: python
+before_script: cd server
 script: python -m unittest
