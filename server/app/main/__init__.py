@@ -13,6 +13,9 @@ from . import events
 
 
 def isUniqueNickName(nickname, nicknames_used):
+    if len(nickname) == 0:
+        return -1
+        
     if nickname in nicknames_used:
         return False
     else:
@@ -36,7 +39,7 @@ def getLeaderboard(player_scores):
 
 def generateUniqueRoomCode(roomCodes, usedOnes):
     if(len(roomCodes) == len(usedOnes)):
-        return "yo"
+        return -1
     secure_random = random.SystemRandom()
     code = (secure_random.choice(roomCodes))
     while code in usedOnes:
