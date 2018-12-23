@@ -15,7 +15,7 @@ from . import events
 def isUniqueNickName(nickname, nicknames_used):
     if len(nickname) == 0:
         return -1
-        
+
     if nickname in nicknames_used:
         return False
     else:
@@ -46,11 +46,3 @@ def generateUniqueRoomCode(roomCodes, usedOnes):
         secure_random = random.SystemRandom()
         code = (secure_random.choice(roomCodes))
     return code
-
-
-
-
-def getQuestion():
-    rand = random.randrange(0, db.session.query(GRE).count())
-    question = db.session.query(GRE)[rand]
-    return {'question': question.Word, 'answer': question.Meaning}

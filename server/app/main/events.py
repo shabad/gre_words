@@ -1,7 +1,11 @@
 import random
 from flask_socketio import SocketIO, send, emit, join_room, leave_room
+from flask_sqlalchemy import SQLAlchemy
 from .. import socketio
 from app.models import GRE
+from app import db
+import random
+
 
 
 
@@ -12,6 +16,13 @@ room_members = {}
 # room_members = {'bateerty': {'Shabad': 0, 'Saad': 0, 'Roman': 0}, ..........}
 
 room_answers = {}
+
+
+def getQuestion():
+    rand = random.randrange(0, db.session.query(GRE).count())
+    question = db.session.query(GRE)[rand]
+    # Flipped ans and question 
+    return {'question': question.Meaning, 'answer': question.Word}
 
 
 @socketio.on('connect')
@@ -61,7 +72,7 @@ def on_get_question(data):
     roomCode = data['roomCode']
     question_num = data['question_number']
 
-    obj = {'question': "What is the meaning of Life?", 'answer': "byzantine", 'option1': "life", 'option2': "sex", 'option3': "mothre", 'option4': "byzantine"}
+    obj = getQuestion()
     room_answers[roomCode] = {}
     room_answers[roomCode][question_num] = []
 

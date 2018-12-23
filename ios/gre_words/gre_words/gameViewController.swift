@@ -136,9 +136,7 @@ class gameViewController: UIViewController {
                 }
     
                 
-                if let txt = arr[0]["option4"] as? String {
-                    self.option4.setTitle(txt, for: .normal)
-                }
+
                 
             }
             
@@ -177,10 +175,9 @@ class gameViewController: UIViewController {
     
     
     
-    
-    @IBAction func selectOption(sender: UIButton) {
+    @IBAction func submitAns(_ sender: UIButton) {
         
-        if sender.title(for: .normal) == self.correct_answer{
+        if self.current_answer.text == self.correct_answer{
             SocketIOManager.shared.socket.emit("correct_answer", ["roomCode": self.roomCode!, "question_number": self.questionNum, "name": self.playerName!])
         }
         else{
@@ -188,6 +185,8 @@ class gameViewController: UIViewController {
         }
         
     }
+    
+
     
 
     
