@@ -18,10 +18,22 @@ room_members = {}
 room_answers = {}
 
 
+def generateUniqueRoomCode(roomCodes, usedOnes):
+    if(len(roomCodes) == len(usedOnes)):
+        return -1
+    secure_random = random.SystemRandom()
+    code = (secure_random.choice(roomCodes))
+    while code in usedOnes:
+        secure_random = random.SystemRandom()
+        code = (secure_random.choice(roomCodes))
+    return code
+
+
+
 def getQuestion():
     rand = random.randrange(0, db.session.query(GRE).count())
     question = db.session.query(GRE)[rand]
-    # Flipped ans and question 
+    # Flipped ans and question
     return {'question': question.Meaning, 'answer': question.Word}
 
 
@@ -34,7 +46,7 @@ def on_connect():
 def on_connect_host(nickname):
     print("Host has been connected")
     name = nickname
-    room = generateRoomCode()
+    room = generateUniqueRoomCode(words, room_members.keys())
     join_room(room)
     room_members[room] = {}
     # room_members[room].append(name)

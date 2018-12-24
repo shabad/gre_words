@@ -289,13 +289,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3Y-8g-gbW">
-                                <rect key="frame" x="184" y="94" width="46" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What is the meaning of byzantine (n)?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZN-qU-ZOT">
                                 <rect key="frame" x="36" y="123" width="343" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -470,7 +463,6 @@
                     <connections>
                         <outlet property="ans" destination="3oV-Kf-2eP" id="f1c-3K-2cB"/>
                         <outlet property="current_answer" destination="iqO-eg-tOu" id="6Cb-qf-VhC"/>
-                        <outlet property="gameLabel" destination="g3Y-8g-gbW" id="9cp-8W-NBm"/>
                         <outlet property="gameQuestion" destination="tZN-qU-ZOT" id="CUy-UI-P7A"/>
                         <outlet property="key1" destination="W8t-Wd-Jqc" id="C8F-HF-tGV"/>
                         <outlet property="key10" destination="tsH-dM-VHQ" id="fxu-6c-hds"/>

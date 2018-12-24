@@ -36,13 +36,3 @@ def getLeaderboard(player_scores):
 
 # [horse, dog, cat, mat, sheet, bat] - RoomCodes
 # [horse, cat]
-
-def generateUniqueRoomCode(roomCodes, usedOnes):
-    if(len(roomCodes) == len(usedOnes)):
-        return -1
-    secure_random = random.SystemRandom()
-    code = (secure_random.choice(roomCodes))
-    while code in usedOnes:
-        secure_random = random.SystemRandom()
-        code = (secure_random.choice(roomCodes))
-    return code

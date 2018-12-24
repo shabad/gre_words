@@ -19,10 +19,9 @@ class gameViewController: UIViewController {
     var isHost: Bool?
     var sentScoreSegue: Bool = false
     
-    @IBOutlet weak var gameLabel: UILabel!
     @IBOutlet weak var gameQuestion: UILabel!
 
-    @IBOutlet weak var option4: UIButton!
+
     @IBOutlet weak var ans: UILabel!
     
  
@@ -67,7 +66,7 @@ class gameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameLabel.text = roomCode
+        
         
         // Add all buttons
         
