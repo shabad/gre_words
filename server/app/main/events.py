@@ -1,11 +1,9 @@
-import random
 from flask_socketio import SocketIO, send, emit, join_room, leave_room
 from flask_sqlalchemy import SQLAlchemy
 from .. import socketio
 from app.models import GRE
 from app import db
-import random
-
+import random, string
 
 
 
@@ -16,6 +14,12 @@ room_members = {}
 # room_members = {'bateerty': {'Shabad': 0, 'Saad': 0, 'Roman': 0}, ..........}
 
 room_answers = {}
+
+def isUniqueNickName(nickname, nicknames_used):
+    if nickname in nicknames_used:
+        return False
+    else:
+        return True
 
 
 def generateUniqueRoomCode(roomCodes, usedOnes):
@@ -57,15 +61,18 @@ def on_connect_host(nickname):
     emit("room_members_new", list(room_members[room].keys()), room = room)
 
 
-def generateRoomCode():
-    secure_random = random.SystemRandom()
-    return (secure_random.choice(words))
-
+def randomword(length):
+   letters = string.ascii_lowercase
+   return ''.join(random.choice(letters) for i in range(length))
 
 @socketio.on('connectPlayerUser')
 def on_connect_player(data):
     name = data['nickname']
     roomCode = data['roomCode']
+    while not isUniqueNickName(name, room_members[roomCode].keys()):
+        name = name + randomword(1)
+
+
     join_room(roomCode)
     room_members[roomCode][name] = 0
     print(room_members)

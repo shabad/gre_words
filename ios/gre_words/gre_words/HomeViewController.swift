@@ -55,12 +55,14 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func joinGame(_ sender: UIButton) {
-        
+  
         let alertController = UIAlertController(title: "Enter a nickname", message: "", preferredStyle: .alert)
         
         let submitNameAction = UIAlertAction(title: "Okay", style: .default) { (action) in
             let textField = alertController.textFields![0]
             self.nickname = textField.text!
+           
+       
             self.performSegue(withIdentifier: "joinGameSegue", sender: nil)
             
             

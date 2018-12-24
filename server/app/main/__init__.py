@@ -13,9 +13,6 @@ from . import events
 
 
 def isUniqueNickName(nickname, nicknames_used):
-    if len(nickname) == 0:
-        return -1
-
     if nickname in nicknames_used:
         return False
     else:
